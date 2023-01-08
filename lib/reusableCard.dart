@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
 
+const kHeadlineColor = Color(0xFF80cbff);
 class ReuasbleCard extends StatelessWidget {
   ReuasbleCard({required this.seatn, required this.seatpos,required this.seatSelect});
   final seatn;
@@ -10,7 +10,7 @@ class ReuasbleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: seatn==seatSelect ? Colors.green : kHeadlineColor,
+      color: seatn==seatSelect ? Color(0xff0096ff) : kHeadlineColor,
       child: ListTile(
         title: Text(
           seatn.toString(),

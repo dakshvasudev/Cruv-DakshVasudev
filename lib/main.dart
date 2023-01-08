@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
 import 'reusableCard.dart';
+
+const kHeadlineColor = Color(0xFF80cbff);
 
 void main() {
   runApp(MaterialApp(
