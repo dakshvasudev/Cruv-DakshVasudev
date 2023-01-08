@@ -5,7 +5,7 @@ import 'reusableCard.dart';
 void main() {
   runApp(MaterialApp(
     title: "Seat Finder",
-    debugShowCheckedModeBanner: false,
+    debugShowCheckedModeBanner: true,
     home: new App(),
   ));
 }
@@ -18,6 +18,9 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+
+  final myController = TextEditingController();
+  String? seatSel = null;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,7 +33,8 @@ class _AppState extends State<App> {
             style: TextStyle(
                 color: kHeadlineColor,
                 fontWeight: FontWeight.bold,
-                fontSize: 25),
+                fontSize: 25,
+            ),
           ),
         ),
         body: Column(
@@ -55,22 +59,21 @@ class _AppState extends State<App> {
                       flex: 3,
                       child: Container(
                         padding: EdgeInsets.all(5.0),
-                        child: const Center(
-                          child: Text(
-                            'Find your seat here',
-                            style: TextStyle(
-                              color: kHeadlineColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
+                        child:  Center(
+                          child: TextField(
+                            controller: myController,
+                          )
                         ),
                       ),
                     ),
                     Expanded(
                       flex: 1,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            seatSel = myController.text;
+                          });
+                        },
                         child: const Text(
                           'Find',
                           style: TextStyle(
@@ -87,6 +90,7 @@ class _AppState extends State<App> {
               height: 30,
               width: double.infinity,
             ),
+
             Column(
               children: [
                 Container(
@@ -96,17 +100,19 @@ class _AppState extends State<App> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
-                        child: ReuasbleCard(seatn: 1, seatpos: 'Lower'),
+                        child: ReuasbleCard(seatn: '1', seatpos: 'Lower',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 2, seatpos: 'Middle'),
+                        child: ReuasbleCard(seatn: '2', seatpos: 'Middle',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 3, seatpos: 'Upper'),
+                        child: ReuasbleCard(seatn: '3', seatpos: 'Upper',seatSelect: seatSel,),
                       ),
-                      SizedBox(width: 40,),
+                      SizedBox(
+                        width: 40,
+                      ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 7, seatpos: 'Side Upper'),
+                        child: ReuasbleCard(seatn: '7', seatpos: 'Side Upper',seatSelect: seatSel,),
                       ),
                     ],
                   ),
@@ -118,17 +124,19 @@ class _AppState extends State<App> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
-                        child: ReuasbleCard(seatn: 4, seatpos: 'Lower'),
+                        child: ReuasbleCard(seatn: '4', seatpos: 'Lower',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 5, seatpos: 'Middle'),
+                        child: ReuasbleCard(seatn: '5', seatpos: 'Middle',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 6, seatpos: 'Upper'),
+                        child: ReuasbleCard(seatn: '6', seatpos: 'Upper',seatSelect: seatSel,),
                       ),
-                      SizedBox(width: 40,),
+                      SizedBox(
+                        width: 40,
+                      ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 8, seatpos: 'Side Lower'),
+                        child: ReuasbleCard(seatn: '8', seatpos: 'Side Lower',seatSelect: seatSel,),
                       ),
                     ],
                   ),
@@ -148,17 +156,19 @@ class _AppState extends State<App> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
-                        child: ReuasbleCard(seatn: 9, seatpos: 'Lower'),
+                        child: ReuasbleCard(seatn: '9', seatpos: 'Lower',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 10, seatpos: 'Middle'),
+                        child: ReuasbleCard(seatn: '10', seatpos: 'Middle',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 11, seatpos: 'Upper'),
+                        child: ReuasbleCard(seatn: '11', seatpos: 'Upper',seatSelect: seatSel,),
                       ),
-                      SizedBox(width: 40,),
+                      SizedBox(
+                        width: 40,
+                      ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 15, seatpos: 'Side Upper'),
+                        child: ReuasbleCard(seatn: '15', seatpos: 'Side Upper',seatSelect: seatSel,),
                       ),
                     ],
                   ),
@@ -170,17 +180,19 @@ class _AppState extends State<App> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
-                        child: ReuasbleCard(seatn: 12, seatpos: 'Lower'),
+                        child: ReuasbleCard(seatn: '12', seatpos: 'Lower',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 13, seatpos: 'Middle'),
+                        child: ReuasbleCard(seatn: '13', seatpos: 'Middle',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 14, seatpos: 'Upper'),
+                        child: ReuasbleCard(seatn: '14', seatpos: 'Upper',seatSelect: seatSel,),
                       ),
-                      SizedBox(width: 40,),
+                      SizedBox(
+                        width: 40,
+                      ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 16, seatpos: 'Side Lower'),
+                        child: ReuasbleCard(seatn: '16', seatpos: 'Side Lower',seatSelect: seatSel,),
                       ),
                     ],
                   ),
@@ -196,17 +208,19 @@ class _AppState extends State<App> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
-                        child: ReuasbleCard(seatn: 17, seatpos: 'Lower'),
+                        child: ReuasbleCard(seatn: '17', seatpos: 'Lower',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 18, seatpos: 'Middle'),
+                        child: ReuasbleCard(seatn: '18', seatpos: 'Middle',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 19, seatpos: 'Upper'),
+                        child: ReuasbleCard(seatn: '19', seatpos: 'Upper',seatSelect: seatSel,),
                       ),
-                      SizedBox(width: 40,),
+                      SizedBox(
+                        width: 40,
+                      ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 23, seatpos: 'Side Upper'),
+                        child: ReuasbleCard(seatn: '23', seatpos: 'Side Upper',seatSelect: seatSel,),
                       ),
                     ],
                   ),
@@ -218,17 +232,19 @@ class _AppState extends State<App> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
-                        child: ReuasbleCard(seatn: 20, seatpos: 'Lower'),
+                        child: ReuasbleCard(seatn: '20', seatpos: 'Lower',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 21, seatpos: 'Middle'),
+                        child: ReuasbleCard(seatn: '21', seatpos: 'Middle',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 22, seatpos: 'Upper'),
+                        child: ReuasbleCard(seatn: '22', seatpos: 'Upper',seatSelect: seatSel,),
                       ),
-                      SizedBox(width: 40,),
+                      SizedBox(
+                        width: 40,
+                      ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 24, seatpos: 'Side Lower'),
+                        child: ReuasbleCard(seatn: '24', seatpos: 'Side Lower',seatSelect: seatSel,),
                       ),
                     ],
                   ),
@@ -244,24 +260,24 @@ class _AppState extends State<App> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
-                        child: ReuasbleCard(seatn: 25, seatpos: 'Lower'),
+                        child: ReuasbleCard(seatn: '25', seatpos: 'Lower',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 26, seatpos: 'Middle'),
+                        child: ReuasbleCard(seatn: '26', seatpos: 'Middle',seatSelect: seatSel,),
                       ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 27, seatpos: 'Upper'),
+                        child: ReuasbleCard(seatn: '27', seatpos: 'Upper',seatSelect: seatSel,),
                       ),
-                      SizedBox(width: 40,),
+                      SizedBox(
+                        width: 40,
+                      ),
                       Expanded(
-                        child: ReuasbleCard(seatn: 31, seatpos: 'Side Upper'),
+                        child: ReuasbleCard(seatn: '31', seatpos: 'Side Upper',seatSelect: seatSel,),
                       ),
                     ],
                   ),
                 ),
-
               ],
-
             ),
           ],
         ),
@@ -269,4 +285,3 @@ class _AppState extends State<App> {
     );
   }
 }
-
