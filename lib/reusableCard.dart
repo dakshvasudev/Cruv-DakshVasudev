@@ -10,15 +10,19 @@ class ReuasbleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: seatn==seatSelect ? Color(0xff0096ff) : kHeadlineColor,
+      color: seatn==seatSelect ? Colors.blue.shade900 : kHeadlineColor,
       child: ListTile(
         title: Text(
           seatn.toString(),
           textAlign: TextAlign.center,
+            style: TextStyle(color: seatn==seatSelect ? Colors.white : Colors.black)
+
         ),
         subtitle: Text(
           seatpos,
+
           textAlign: TextAlign.center,
+          style: TextStyle(color: seatn==seatSelect ? Colors.white : Colors.black)
         ),
       ),
     );
